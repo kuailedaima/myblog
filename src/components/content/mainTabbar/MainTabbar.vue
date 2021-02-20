@@ -38,7 +38,7 @@ export default {
         console.log('登陆');
         this.$router.push('/login').catch(err => {
           console.log('输出报错',err)
-        })
+        });
       }
     }
 };
