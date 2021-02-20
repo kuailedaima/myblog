@@ -39,7 +39,6 @@ export default {
         this.$router.push('/login').catch(err => {
           console.log('输出报错',err)
         })
-        console.log('zhuc');
       }
     }
 };
