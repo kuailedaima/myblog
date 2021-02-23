@@ -10,7 +10,7 @@
   <el-menu-item index="1">主页</el-menu-item>
   <el-menu-item index="2">技术</el-menu-item>
   <el-menu-item index="3">消息中心</el-menu-item>
-  <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+  <el-menu-item index="4">随笔记录</el-menu-item>
   <el-menu-item index="5" class="login" @click="sign">登陆/注册</el-menu-item>
 </el-menu>
 </template>
@@ -33,13 +33,46 @@ export default {
     methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
+        let index = Number(key);
+        switch(index){
+          case 1:
+            console.log("主页");
+            this.$router.push('/homepage')
+            break;
+          case 2:
+            console.log("技术");
+            break;
+          case 3:
+            console.log("消息");
+            break;
+          case 4:
+            console.log("随笔");
+            break;
+        }
       },
       sign(){
         console.log('登陆');
         this.$router.push('/login').catch(err => {
           console.log('输出报错',err)
         });
-      }
+      },
+      // selectpage(index){
+      //   let page = index
+      //   switch(page){
+      //     case 1:
+      //       console.log("主页");
+      //       break;
+      //     case 2:
+      //       console.log("技术");
+      //       break;
+      //     case 3:
+      //       console.log("消息");
+      //       break;
+      //     case 4:
+      //       console.log("随笔");
+      //       break;
+      //   }
+      // }
     }
 };
 </script>
