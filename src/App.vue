@@ -4,15 +4,16 @@
       <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
     <!-- </div> -->
+    <main-tabbar/>
     <router-view/>
   </div>
 </template>
 
 <script>
-// import MainTabbar from '../components/content/mainTabbar/MainTabbar'
+import MainTabbar from './components/content/mainTabbar/MainTabbar'
 export default {
   components:{
-    
+    MainTabbar
   }
 }
 </script>

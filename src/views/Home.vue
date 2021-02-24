@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <main-tabbar/>
+    <!-- <main-tabbar/> -->
   </div>
 </template>
 

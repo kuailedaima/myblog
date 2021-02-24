@@ -4,6 +4,9 @@ import Home from '../views/Home.vue'
 import Login from '../views/login/Login.vue'
 import Register from '../views/login/Register.vue'
 import Homepage  from '../views/homePage/HomePage.vue'
+import Technology from '../views/technology/Technology.vue'
+import Essay from '../views/essay/Essay.vue'
+import Message from '../views/message/Message.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +30,21 @@ const routes = [
     path: '/homepage',
     name: 'Homepage',
     component: Homepage
+  },
+  {
+    path: '/technology',
+    name: 'Technology',
+    component: Technology
+  },
+  {
+    path: '/essay',
+    name: 'Essay',
+    component: Essay
+  },
+  {
+    path: '/message',
+    name: 'Message',
+    component: Message
   },
 ]
 

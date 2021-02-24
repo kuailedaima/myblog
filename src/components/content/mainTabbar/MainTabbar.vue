@@ -9,8 +9,8 @@
   active-text-color="#ffd04b">
   <el-menu-item index="1">主页</el-menu-item>
   <el-menu-item index="2">技术</el-menu-item>
-  <el-menu-item index="3">消息中心</el-menu-item>
-  <el-menu-item index="4">随笔记录</el-menu-item>
+  <el-menu-item index="3">心情随笔</el-menu-item>
+  <el-menu-item index="4">留言板</el-menu-item>
   <el-menu-item index="5" class="login" @click="sign">登陆/注册</el-menu-item>
 </el-menu>
 </template>
@@ -41,12 +41,15 @@ export default {
             break;
           case 2:
             console.log("技术");
+            this.$router.push('/technology')
             break;
           case 3:
-            console.log("消息");
+            console.log("心情随笔");
+            this.$router.push('/essay')
             break;
           case 4:
-            console.log("随笔");
+            console.log("留言板");
+            this.$router.push('/message')
             break;
         }
       },
@@ -56,23 +59,6 @@ export default {
           console.log('输出报错',err)
         });
       },
-      // selectpage(index){
-      //   let page = index
-      //   switch(page){
-      //     case 1:
-      //       console.log("主页");
-      //       break;
-      //     case 2:
-      //       console.log("技术");
-      //       break;
-      //     case 3:
-      //       console.log("消息");
-      //       break;
-      //     case 4:
-      //       console.log("随笔");
-      //       break;
-      //   }
-      // }
     }
 };
 </script>
