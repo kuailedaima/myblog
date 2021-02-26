@@ -7,6 +7,7 @@ import Homepage  from '../views/homePage/HomePage.vue'
 import Technology from '../views/technology/Technology.vue'
 import Essay from '../views/essay/Essay.vue'
 import Message from '../views/message/Message.vue'
+import WriteBlog from '../views/writeBlog/WriteBlog.vue'
 
 Vue.use(VueRouter)
 
@@ -46,6 +47,11 @@ const routes = [
     name: 'Message',
     component: Message
   },
+  {
+  path: '/writeblog',
+  name: 'WriteBlog',
+  component: WriteBlog
+},
 ]
 
 const router = new VueRouter({

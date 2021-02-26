@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var  Login = require('./routes/login')
 var Register = require('./routes/register')
+var SaveFile = require('./routes/savefile')
 
 const bodyParser = require('body-parser');
 var cors = require('cors')
@@ -35,6 +36,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login',Login);
 app.use('/register',Register);
+app.use('/svefile',SaveFile);
 
 
 // catch 404 and forward to error handler
