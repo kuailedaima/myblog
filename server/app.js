@@ -36,7 +36,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login',Login);
 app.use('/register',Register);
-app.use('/svefile',SaveFile);
+app.use('/savefile',SaveFile);
 
 
 // catch 404 and forward to error handler
