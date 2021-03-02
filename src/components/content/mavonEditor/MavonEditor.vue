@@ -3,6 +3,7 @@
       <mavon-editor v-model="value" 
                     ref= md
                     @imgAdd="$imgAdd" 
+                    @imgDel="$imgDel"
                     @save="save"/>
   </div>
 </template>
@@ -25,6 +26,9 @@ export default {
       // 绑定@imgAdd event
       $imgAdd(pos, $file){
         this.img_file[pos] = $file;
+        console.log($file.name);
+
+  
         // console.log(data);
         // 第一步.将图片上传到服务器.
         // var formdata = new FormData();
@@ -39,6 +43,9 @@ export default {
         
 
       },
+       $imgDel(pos){
+            delete this.img_file[pos];
+        },
       save(){
         this.uploadimg()
         console.log(this.$refs.md.d_render);
@@ -56,6 +63,10 @@ export default {
 
         this.$axios.post("/savefile",formdata,config).then(res =>{
           console.log(res);
+          for(var img in res){
+            console.log(res[img]);
+            this.$refs.md.$img2Url(img, res[img]);
+          }
         }).catch(err =>{
           console.log(err);
         })

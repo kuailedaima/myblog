@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const multiparty = require('multiparty');   //引入multiparty插件
+const fs = require('fs')
 
 
 router.post('/',(req,res) =>{
@@ -11,6 +12,13 @@ router.post('/',(req,res) =>{
     // form.uploadDir='../file/image/blogillstration/'
     form.parse(req,(err,fields,files)=>{
         var filesTmp = JSON.stringify(files, null, 2);
+        // var fileso = JSON.parse(filesTmp)
+        // console.log(files);
+        // // console.log(fileso);
+        // console.log('111111111111');
+        // console.log(files[1][0].path);
+        
+        // console.log(filesTmp);
 
         if(err){
             // res.json({
@@ -20,19 +28,29 @@ router.post('/',(req,res) =>{
             console.log(err);
           }else{
             console.log('parse files: ' + filesTmp);
-            var inputFile = files['filenames'][0];
-            //保存上传文件
-            files['filenames'].forEach(function(inputFile) {
-                //重命名为真实文件名
-                fs.renameSync(inputFile.path, form.uploadDir + projectName + "/" + inputFile.originalFilename,
-                function(err) {
-                    if (err) {
-                        console.log('rename error: ' + err);
-                    } else {
-                        console.log('rename ok');
-                    }
-                });
-            });
+            // var inputFile = files['filenames'][0];
+           // 保存上传文件
+           const imgurl = {};
+           let i=1;
+           console.log('------------');
+           for(var inputFile in files){
+             console.log(files[inputFile]);
+             console.log(inputFile);
+             imgurl[inputFile]=files[inputFile][0].path
+           }
+           console.log(imgurl);
+           res.send(imgurl)
+            // files.forEach(function(inputFile) {
+            //     //重命名为真实文件名
+            //     fs.renameSync(inputFile[0].path, form.uploadDir +"/" + inputFile[0].originalFilename,
+            //     function(err) {
+            //         if (err) {
+            //             console.log('rename error: ' + err);
+            //         } else {
+            //             console.log('rename ok');
+            //         }
+            //     });
+            // });
 
             // res.json({ 
             //   status:"0",
@@ -49,9 +67,8 @@ router.post('/',(req,res) =>{
     // form.on('file',(name,filevalue)=>{ //file主要是获取文件数据信息。
     //     console.log('文件信息:',name,filevalue);
     // });
-    console.log(req.body);
-    console.log("uuu");
-    res.send("图片")
+
+    // res.send("图片")
 });
 
 module.exports = router;
