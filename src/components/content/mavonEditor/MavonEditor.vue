@@ -26,6 +26,7 @@ export default {
       // 绑定@imgAdd event
       $imgAdd(pos, $file){
         this.img_file[pos] = $file;
+        console.log($file);
         console.log($file.name);
 
   

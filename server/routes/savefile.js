@@ -35,10 +35,22 @@ router.post('/',(req,res) =>{
            console.log('------------');
            for(var inputFile in files){
              console.log(files[inputFile]);
-             console.log(inputFile);
+             console.log(files[inputFile][0].originalFilename);
+             let uploadPath = files[inputFile][0].path;
+             let dstPath = 'http://localhost:3000/'+'/image/blogillstration/' + files[inputFile][0].originalFilename;
+             console.log(uploadPath);
+             console.log(dstPath);
+             //对图片重命名
+             fs.rename(uploadPath, dstPath, function(err){
+               if(err){
+                 console.log('命名失败！');
+                 console.log(err);
+               } else {
+                 console.log('成功！');
+               }
+             })
              imgurl[inputFile]=files[inputFile][0].path
            }
-           console.log(imgurl);
            res.send(imgurl)
             // files.forEach(function(inputFile) {
             //     //重命名为真实文件名
