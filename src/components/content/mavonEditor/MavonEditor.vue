@@ -4,6 +4,7 @@
                     ref= md
                     @imgAdd="$imgAdd" 
                     @imgDel="$imgDel"
+                    @htmlCode="htmlcode"
                     @save="save"/>
   </div>
 </template>
@@ -26,10 +27,6 @@ export default {
       // 绑定@imgAdd event
       $imgAdd(pos, $file){
         this.img_file[pos] = $file;
-        console.log($file);
-        console.log($file.name);
-
-  
         // console.log(data);
         // 第一步.将图片上传到服务器.
         // var formdata = new FormData();
@@ -54,6 +51,7 @@ export default {
       },
 
       uploadimg(){
+        console.log("dddd");
         var formdata = new FormData();
         for(var _img in this.img_file){
           formdata.append(_img, this.img_file[_img]);
@@ -71,6 +69,10 @@ export default {
         }).catch(err =>{
           console.log(err);
         })
+      },
+
+      htmlcode(){
+        console.log();
       }
 
     }
