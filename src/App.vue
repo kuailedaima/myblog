@@ -4,7 +4,10 @@
       <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
     <!-- </div> -->
-    <main-tabbar/>
+    <div id="maintabbar">
+      <main-tabbar/>
+    </div>
+    
     <router-view/>
   </div>
 </template>
@@ -37,6 +40,10 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#maintabbar {
+  width: 100%;
 }
 
 </style>

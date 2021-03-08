@@ -1,5 +1,6 @@
 <template>
   <div id="mavoneditor">
+    <button @click="upload">上传</button>
       <mavon-editor v-model="value" 
                     ref= md
                     @imgAdd="$imgAdd" 
@@ -45,9 +46,23 @@ export default {
             delete this.img_file[pos];
         },
       save(){
-        this.uploadimg()
+        // this.uploadimg()
         console.log(this.$refs.md.d_render);
         console.log(this.$refs.md.d_value);
+        let data = {
+          md: this.$refs.md.d_value,
+          html: this.$refs.md.d_render
+        }
+
+        this.$axios.post("/savefile/blogdata",qs.stringify(data)).then(res =>{
+          console.log(res);
+        }).catch(err =>{
+          console.log(err);
+        })
+      },
+
+      upload(){
+        this.uploadimg()
       },
 
       uploadimg(){
@@ -60,7 +75,7 @@ export default {
            headers:{'Content-Type': 'multipart/form-data'}
         }
 
-        this.$axios.post("/savefile",formdata,config).then(res =>{
+        this.$axios.post("/savefile/blogimag",formdata,config).then(res =>{
           console.log(res);
           for(var img in res){
             console.log(res[img]);
