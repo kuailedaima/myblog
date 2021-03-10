@@ -16,7 +16,8 @@ export default {
   #img-title {
     margin:0 auto;
     background-color:blue;
-    width: 100%;
+    float: left;
+    width: 70%;
     height: 300px;
 
   }

@@ -4,9 +4,27 @@
       <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
     <!-- </div> -->
-    <div id="maintabbar">
+    <!-- <div id="maintabbar">
       <main-tabbar/>
+    </div> -->
+    <!-- 博客头部 -->
+    <header>
+      <main-tabbar/>
+    </header>
+    <!-- 博客主体 -->
+    <div id="content">
+      <div id="main">
+        <button @click="login">登陆弹窗</button>
+        <logins ref="logins"/>
+      </div>
+      <!-- 侧边栏 -->
+      <div id="sidebar">
+        <sidebar/>
+      </div>
     </div>
+    <!-- 博客底部 -->
+    <footer></footer>
+
     
     <router-view/>
   </div>
@@ -14,9 +32,18 @@
 
 <script>
 import MainTabbar from './components/content/mainTabbar/MainTabbar'
+import Sidebar from './views/sideBar/Sidebar'
+import Logins from './views/login/Logins.vue';
 export default {
   components:{
-    MainTabbar
+    MainTabbar,
+    Sidebar,
+    Logins
+  },
+  methods:{
+    login(){
+      this.$refs.logins.jump();
+    }
   }
 }
 </script>
@@ -44,6 +71,12 @@ export default {
 
 #maintabbar {
   width: 100%;
+}
+
+#sidebar {
+  width: 30%;
+  float: right;
+  background: rgb(17, 153, 130);
 }
 
 </style>
