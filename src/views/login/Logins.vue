@@ -17,7 +17,7 @@
     <input node-type="phone-num" 
           class="phone-input" 
           type="text" value="" 
-          placeholder="密码">
+          placeholder="输入密码">
   </div>
   <span slot="footer" class="dialog-footer">
     <el-button @click="centerDialogVisible = false">取 消</el-button>
@@ -47,6 +47,7 @@ export default {
         this.centerDialogVisible = !this.centerDialogVisible
       }
     },
+
 };
 </script>
 
