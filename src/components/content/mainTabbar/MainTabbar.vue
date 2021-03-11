@@ -55,9 +55,10 @@ export default {
       },
       sign(){
         console.log('登陆');
-        this.$router.push('/login').catch(err => {
-          console.log('输出报错',err)
-        });
+        // this.$router.push('/login').catch(err => {
+        //   console.log('输出报错',err)
+        // });
+        this.$parent.login();
       },
     }
 };

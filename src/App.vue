@@ -14,7 +14,6 @@
     <!-- 博客主体 -->
     <div id="content">
       <div id="main">
-        <button @click="login">登陆弹窗</button>
         <logins ref="logins"/>
       </div>
       <!-- 侧边栏 -->
