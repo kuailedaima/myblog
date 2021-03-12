@@ -4,6 +4,7 @@
     <el-dialog
       title="登录"
       :visible.sync="centerDialogVisible"
+      :destroy-on-close=true
       width="30%"
       center>
   <div class="phone">
@@ -129,22 +130,22 @@ export default {
                     this.$axios.post("/login",qs.stringify(data)).then(res=>{
                     //回调处理
                     // console.log(res)
-                        switch(res){
+              switch(res){
 					    case 0: 
 						    alert("用户名或密码错误!");
 						    break;
 					    case 1:
-                            alert("登陆成功！")
-                            this.$router.push('/')
+                alert("登陆成功！")
+                this.$router.push('/')
 						    break;
 					    case 2:
-                            alert("出错了请稍后！")
+                alert("出错了请稍后！")
 						    break;
 				        }
-                    }).catch(err=>{
-                        console.log(err)
-                     })
-                }
+              }).catch(err=>{
+                  console.log(err)
+              })
+              }
             }
         },
     },

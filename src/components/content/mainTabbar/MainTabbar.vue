@@ -4,15 +4,17 @@
   class="el-menu-demo"
   mode="horizontal"
   @select="handleSelect"
-  background-color="#545c64"
+  background-color= "#545c64"
   text-color="#fff"
   active-text-color="#ffd04b">
   <el-menu-item index="1">主页</el-menu-item>
   <el-menu-item index="2">技术</el-menu-item>
   <el-menu-item index="3">心情随笔</el-menu-item>
   <el-menu-item index="4">留言板</el-menu-item>
-  <el-menu-item index="5" class="login" @click="sign">登陆/注册</el-menu-item>
+  <el-menu-item index="5" class="login" @click="sign">登录/注册</el-menu-item>
+  <el-menu-item indx="6" v-if="false">登录成功</el-menu-item>
 </el-menu>
+<!-- background-color="#545c64" -->
 </template>
 
 <script>
@@ -67,6 +69,15 @@ export default {
 <style scoped>
   .login {
     float: right ;
+  }
+
+  #headimg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-color: chartreuse;
+    background-color: red;
+    float: right;
   }
 
 </style>
